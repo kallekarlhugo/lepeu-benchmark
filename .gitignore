@@ -1,0 +1,30 @@
+# --- per-run pipeline state (massive, regenerable) ---
+runs/
+postprocess/
+archive/
+status.tsv
+
+# --- raw / reference data (live on Lunarc, never in git) ---
+data/
+refs/
+ncbi_dataset/
+ncbi_dataset.zip
+Lisbon*workshop*/
+zach_grenepipe/
+grenepipe/
+
+# --- generated reports / scratch ---
+*.html
+*.log
+slurm-*.out
+slurm-*.err
+*.tmp
+
+# --- editor / OS noise ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.snakemake/

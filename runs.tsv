@@ -1,0 +1,73 @@
+# Each row defines one benchmarking run.
+# Columns (tab-separated):
+#   run_id          unique short name; becomes the output directory
+#   reference       absolute path to the reference .fa or .fa.gz
+#   samples_table   absolute path to the samples.tsv for this species/population
+#   mapping_tool    bwamem | bwamem2 | bwaaln | bowtie2 | ngm
+#   calling_tool    haplotypecaller | bcftools | freebayes | deepvariant
+#   calling_mode    default | individual | combined | combined_hwe
+#                   - "default" for haplotypecaller, deepvariant, freebayes (mode is N/A)
+#                   - "individual" / "combined" for bcftools mode selection
+#                   - "combined_hwe" = combined + per-population HWE prior (wiring still TODO;
+#                                       launcher currently treats this as plain "combined")
+#   bams_from       empty for anchor rows (do their own trim/map/dedup).
+#                   set to an anchor's run_id to reuse that anchor's BAMs (skip trim/map/dedup).
+#
+# Anchor convention: one _bcftools_cohort row per (species, aligner). The anchor runs the
+# full pipeline including bcftools combined calling, then writes mappings.tsv. The other
+# four caller variants in each group reuse the anchor's BAMs.
+#
+# Matrix: 5 species  x  2 aligners (ngm, bwamem)  x  5 caller variants  =  50 runs.
+#         => 10 anchors and 40 dependents.
+# Lines starting with # are ignored.
+run_id	reference	samples_table	mapping_tool	calling_tool	calling_mode	bams_from
+Pnapi_ngm_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	ngm	bcftools	combined
+Pnapi_ngm_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	ngm	haplotypecaller	default	Pnapi_ngm_bcftools_cohort
+Pnapi_ngm_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	ngm	deepvariant	default	Pnapi_ngm_bcftools_cohort
+Pnapi_ngm_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	ngm	bcftools	individual	Pnapi_ngm_bcftools_cohort
+Pnapi_ngm_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	ngm	bcftools	combined_hwe	Pnapi_ngm_bcftools_cohort
+Pnapi_bwa_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	bwamem	bcftools	combined
+Pnapi_bwa_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	bwamem	haplotypecaller	default	Pnapi_bwa_bcftools_cohort
+Pnapi_bwa_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	bwamem	deepvariant	default	Pnapi_bwa_bcftools_cohort
+Pnapi_bwa_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	bwamem	bcftools	individual	Pnapi_bwa_bcftools_cohort
+Pnapi_bwa_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905475465.2_ilPieNapi1.2_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/pnapi_samples.tsv	bwamem	bcftools	combined_hwe	Pnapi_bwa_bcftools_cohort
+Picarus_ngm_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	ngm	bcftools	combined
+Picarus_ngm_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	ngm	haplotypecaller	default	Picarus_ngm_bcftools_cohort
+Picarus_ngm_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	ngm	deepvariant	default	Picarus_ngm_bcftools_cohort
+Picarus_ngm_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	ngm	bcftools	individual	Picarus_ngm_bcftools_cohort
+Picarus_ngm_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	ngm	bcftools	combined_hwe	Picarus_ngm_bcftools_cohort
+Picarus_bwa_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	bwamem	bcftools	combined
+Picarus_bwa_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	bwamem	haplotypecaller	default	Picarus_bwa_bcftools_cohort
+Picarus_bwa_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	bwamem	deepvariant	default	Picarus_bwa_bcftools_cohort
+Picarus_bwa_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	bwamem	bcftools	individual	Picarus_bwa_bcftools_cohort
+Picarus_bwa_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_937595015.1_ilPolIcar1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Picar_samples.tsv	bwamem	bcftools	combined_hwe	Picarus_bwa_bcftools_cohort
+Pargus_ngm_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	ngm	bcftools	combined
+Pargus_ngm_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	ngm	haplotypecaller	default	Pargus_ngm_bcftools_cohort
+Pargus_ngm_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	ngm	deepvariant	default	Pargus_ngm_bcftools_cohort
+Pargus_ngm_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	ngm	bcftools	individual	Pargus_ngm_bcftools_cohort
+Pargus_ngm_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	ngm	bcftools	combined_hwe	Pargus_ngm_bcftools_cohort
+Pargus_bwa_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	bwamem	bcftools	combined
+Pargus_bwa_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	bwamem	haplotypecaller	default	Pargus_bwa_bcftools_cohort
+Pargus_bwa_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	bwamem	deepvariant	default	Pargus_bwa_bcftools_cohort
+Pargus_bwa_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	bwamem	bcftools	individual	Pargus_bwa_bcftools_cohort
+Pargus_bwa_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905404155.3_ilPleArgu1.3_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Pargus_samples.tsv	bwamem	bcftools	combined_hwe	Pargus_bwa_bcftools_cohort
+Csemiargus_ngm_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	ngm	bcftools	combined
+Csemiargus_ngm_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	ngm	haplotypecaller	default	Csemiargus_ngm_bcftools_cohort
+Csemiargus_ngm_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	ngm	deepvariant	default	Csemiargus_ngm_bcftools_cohort
+Csemiargus_ngm_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	ngm	bcftools	individual	Csemiargus_ngm_bcftools_cohort
+Csemiargus_ngm_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	ngm	bcftools	combined_hwe	Csemiargus_ngm_bcftools_cohort
+Csemiargus_bwa_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	bwamem	bcftools	combined
+Csemiargus_bwa_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	bwamem	haplotypecaller	default	Csemiargus_bwa_bcftools_cohort
+Csemiargus_bwa_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	bwamem	deepvariant	default	Csemiargus_bwa_bcftools_cohort
+Csemiargus_bwa_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	bwamem	bcftools	individual	Csemiargus_bwa_bcftools_cohort
+Csemiargus_bwa_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905187585.1_ilCyaSemi1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Csemiargus_samples.tsv	bwamem	bcftools	combined_hwe	Csemiargus_bwa_bcftools_cohort
+Lbella_ngm_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	ngm	bcftools	combined
+Lbella_ngm_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	ngm	haplotypecaller	default	Lbella_ngm_bcftools_cohort
+Lbella_ngm_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	ngm	deepvariant	default	Lbella_ngm_bcftools_cohort
+Lbella_ngm_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	ngm	bcftools	individual	Lbella_ngm_bcftools_cohort
+Lbella_ngm_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	ngm	bcftools	combined_hwe	Lbella_ngm_bcftools_cohort
+Lbella_bwa_bcftools_cohort	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	bwamem	bcftools	combined
+Lbella_bwa_hc	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	bwamem	haplotypecaller	default	Lbella_bwa_bcftools_cohort
+Lbella_bwa_dv	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	bwamem	deepvariant	default	Lbella_bwa_bcftools_cohort
+Lbella_bwa_bcftools_ind	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	bwamem	bcftools	individual	Lbella_bwa_bcftools_cohort
+Lbella_bwa_bcftools_hwe	/lunarc/nobackup/projects/lepeu-lisbon/data/joron_refs/GCA_905333045.1_ilLysBell1.1_genomic.fna.gz	/lunarc/nobackup/projects/lepeu-lisbon/samples/Lbella_samples.tsv	bwamem	bcftools	combined_hwe	Lbella_bwa_bcftools_cohort

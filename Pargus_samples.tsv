@@ -1,0 +1,16 @@
+sample  unit    population  platform    fq1 fq2
+Pargus_B1   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498589_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498589_2.fq
+Pargus_B2   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498607_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498607_2.fq
+Pargus_B3   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498609_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498609_2.fq
+Pargus_B4   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498611_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498611_2.fq
+Pargus_B5   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498648_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498648_2.fq
+Pargus_B6   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498659_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498659_2.fq
+Pargus_B7   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498680_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498680_2.fq
+Pargus_B8   Lane1   Sweden-Branthalla   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498760_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498760_2.fq
+Pargus_Fal9 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498612_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498612_2.fq
+Pargus_Fal1 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498616_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498616_2.fq
+Pargus_Fal2 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498623_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498623_2.fq
+Pargus_Fal3 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498669_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498669_2.fq
+Pargus_Fal4 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498692_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498692_2.fq
+Pargus_Fal5 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498695_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498695_2.fq
+Pargus_Fal6 Lane1   Sweden-Falsterbo    ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498715_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498715_2.fq

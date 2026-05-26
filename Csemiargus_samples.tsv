@@ -1,0 +1,17 @@
+sample  unit    population  platform    fq1 fq2
+Csemiargus_Fas1 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498594_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498594_2.fq
+Csemiargus_Fas2 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498595_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498595_2.fq
+Csemiargus_Fas3 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498663_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498663_2.fq
+Csemiargus_Fas4 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498664_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498664_2.fq
+Csemiargus_Fas5 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498696_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498696_2.fq
+Csemiargus_Fas6 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498699_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498699_2.fq
+Csemiargus_Fas7 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498704_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498704_2.fq
+Csemiargus_Fas8 Lane1   Sweden-Fastan   ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498708_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498708_2.fq
+Csemiargus_S1   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498597_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498597_2.fq
+Csemiargus_S2   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498599_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498599_2.fq
+Csemiargus_S3   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498600_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498600_2.fq
+Csemiargus_S4   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498601_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498601_2.fq
+Csemiargus_S5   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498665_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498665_2.fq
+Csemiargus_S6   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498698_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498698_2.fq
+Csemiargus_S7   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498702_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498702_2.fq
+Csemiargus_S8   Lane1   Sweden-Silvakra ILLUMINA    /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498705_1.fq /lunarc/nobackup/projects/lepeu-lisbon/data/fastq/SRR29498705_2.fq

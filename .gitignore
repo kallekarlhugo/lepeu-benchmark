@@ -28,3 +28,4 @@ Thumbs.db
 __pycache__/
 *.pyc
 .snakemake/
+workshop_data/multiqc/lepeu-postprocess_data/
